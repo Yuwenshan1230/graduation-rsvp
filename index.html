@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTL-ICHM Graduation Ceremony Class 2022</title>
+
+<style>
+    /* === SQUID GAME THEME === */
+    @font-face {
+        font-family: 'Game Of Squids';
+        src: url('https://fonts.cdnfonts.com/css/game-of-squids');
+        font-display: swap;
+    }
+
+    :root {
+        --pink: #E8415E;
+        --teal: #076A63;
+        --yellow: #FFD700;
+        --black: #0A0A0A;
+        --red: #FF0000;
+        --white: #FFFFFF;
+    }
+
+    body {
+        /* NEW: Working background with 3 fallbacks */
+        background: 
+            url('https://i.ibb.co/9z0PJ4r/vecteezy-squid-game-series-vector-logo-8770823-removebg-preview-1-Photoroom-2.jpg'),
+            url('https://i.imgur.com/9X6JYQy.jpg'), /* Backup image */
+            linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), /* Dark overlay */
+            #000000; /* Final fallback */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--yellow);
+        font-family: 'Game Of Squids', sans-serif;
+        margin: 0;
+        padding: 20px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        overflow-x: hidden;
+    }
+
+    .game-container {
+        background: rgba(10, 10, 10, 0.9);
+        border: 4px solid var(--pink);
+        box-shadow: 0 0 25px var(--pink);
+        padding: 30px;
+        max-width: 600px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        margin: 0 auto;
+    }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+            width: 100%;
+        }
+
+        .college-logo {
+            max-width: 300px;
+            height: auto;
+            filter: drop-shadow(0 0 0px var(--yellow));
+            transition: transform 0.3s ease;
+        }
+
+        .college-logo:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 0 18px var(--yellow));
+        }
+
+        .neon-title {
+            font-size: 2.2rem;
+            color: var(--pink);
+            text-shadow: 
+                0 0 10px var(--pink),
+                0 0 20px var(--pink),
+                3px 3px 0 var(--teal);
+            margin: 10px 0 20px;
+            animation: text-glow 2s infinite alternate;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--yellow);
+            margin-bottom: 25px;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--yellow);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 3px;
+            background: var(--black);
+            border: 2px solid var(--teal);
+            color: var(--yellow);
+            font-family: 'Game Of Squids', sans-serif;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--yellow);
+            box-shadow: 0 0 10px var(--yellow);
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .radio-group label:hover {
+            color: var(--white);
+            text-shadow: 0 0 8px var(--yellow);
+        }
+
+        #submitBtn {
+            background: var(--black);
+            color: var(--yellow);
+            border: 2px solid var(--yellow);
+            padding: 14px;
+            font-size: 1.1rem;
+            font-family: 'Game Of Squids', sans-serif;
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px var(--yellow);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 4px;
+        }
+
+        #submitBtn:hover {
+            background: var(--yellow);
+            color: var(--black);
+            box-shadow: 0 0 25px var(--yellow);
+            transform: translateY(-2px);
+        }
+
+        #submitBtn:disabled {
+            opacity: 0.7;
+            transform: none;
+        }
+
+        #statusMessage {
+            margin-top: 15px;
+            min-height: 24px;
+            font-size: 0.95rem;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes text-glow {
+            from { text-shadow: 0 0 10px var(--pink), 3px 3px 0 var(--teal); }
+            to { text-shadow: 0 0 20px var(--pink), 0 0 30px var(--red), 3px 3px 0 var(--teal); }
+        }
+
+        @media (max-width: 768px) {
+            .neon-title { font-size: 1.8rem; }
+            .college-logo { max-width: 180px; }
+            .game-container { padding: 25px; }
+            body { padding: 15px; }
+        }
+
+        @media (max-width: 480px) {
+            .neon-title { font-size: 1.5rem; }
+            .college-logo { max-width: 150px; }
+            .subtitle { font-size: 0.9rem; }
+            #submitBtn { padding: 12px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <!-- Logo moved INSIDE the container -->
+        <div class="logo-container">
+            <img src="college-logo.png" alt="YTL-ICHM Logo" class="college-logo">
+        </div>
+
+        <h1 class="neon-title">Graduation Ceremony Class Of 2022</h1>
+        <p class="subtitle">We Dreamed, We Hustled, We Leveled Up!</p>
+        
+        <form id="rsvpForm">
+            <div class="input-group">
+                <label for="name">GRADUATE NAME:</label>
+                <input type="text" id="name" required placeholder="Enter your name...">
+            </div>
+            
+            <div class="input-group">
+                <label for="email">EMAIL:</label>
+                <input type="email" id="email" required placeholder="your@email.com">
+            </div>
+            
+            <div class="input-group">
+                <label for="phone">PHONE NUMBER:</label>
+                <input type="tel" id="phone" required placeholder="+60 12-345 6789">
+            </div>
+            
+            <div class="input-group">
+                <label for="pax">NUMBER OF GUESTS:</label>
+                <select id="pax" required>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4+ Guests</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label>WILL YOU PARTICIPATE?</label>
+                <div class="radio-group">
+                <label>
+		✅YES<input type="radio" name="participate" value="yes" checked> 
+                 </label>
+                 <label>
+		❌NO<input type="radio" name="participate" value="no">
+                 </label>
+		</div>
+            </div>
+            
+            <button type="submit" id="submitBtn">SUBMIT RSVP</button>
+            <div id="statusMessage"></div>
+        </form>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyD6UZPrZixGEq8ixmg2xzRU69gTQyFtgqw",
+            authDomain: "squidgamersvp.firebaseapp.com",
+            databaseURL: "https://squidgamersvp-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "squidgamersvp",
+            storageBucket: "squidgamersvp.appspot.com",
+            messagingSenderId: "453903121734",
+            appId: "1:453903121734:web:5339c04d84dc104057b947",
+            measurementId: "G-XN34P7KXZ3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        document.getElementById('rsvpForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            const statusEl = document.getElementById('statusMessage');
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'PROCESSING...';
+            statusEl.textContent = '';
+            statusEl.style.color = '';
+
+            try {
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    pax: document.getElementById('pax').value,
+                    participate: document.querySelector('input[name="participate"]:checked').value,
+                    timestamp: new Date().toISOString()
+                };
+
+                await push(ref(database, 'submissions'), formData);
+                
+                statusEl.textContent = '✅ RSVP SUBMITTED!';
+                statusEl.style.color = '#076A63';
+                document.getElementById('rsvpForm').reset();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                statusEl.textContent = `❌ ERROR: ${error.message}`;
+                statusEl.style.color = '#E8415E';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'SUBMIT RSVP';
+            }
+        });
+    </script>
+</body>
+</html>
